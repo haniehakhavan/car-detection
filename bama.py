@@ -4,7 +4,7 @@ import csv
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--nop', type=int, help='number of pages', default='100')
+parser.add_argument('--nop', type=int, help='number of pages', default=100)
 parser.add_argument('--path', type=str, default='/home/hanieh/car/bama_pages/',
                     help='path of a directory to save html pages')
 parser.add_argument('--output_path', type=str, default='/home/hanieh/car/bama.csv',
