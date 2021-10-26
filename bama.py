@@ -1,6 +1,16 @@
 from bs4 import *
 import requests as rq
 import csv
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--nop', type=int, help='number of pages', default='100')
+parser.add_argument('--path', type=str, default='/home/hanieh/car/bama_pages/',
+                    help='path of a directory to save html pages')
+parser.add_argument('--output_path', type=str, default='/home/hanieh/car/bama.csv',
+                    help='path of the directory to save output')
+
+args = parser.parse_args()
 
 pages = []
 cars = []
@@ -11,7 +21,8 @@ page_name = []
 headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 
-for n in range (100,0,-1):
+#get ads' links of first n  page of bama
+for n in range (args.nop,0,-1):
     url = 'https://bama.ir/car/all-brands/all-models/all-trims?pic=true&page='+str(n)
     print(url)
     r = rq.get(url, headers=headers)
@@ -20,12 +31,13 @@ for n in range (100,0,-1):
     for l in links:
         pages.append(l['href'])
 
+#get info from each ad
 for p in pages:
     print(p)
     name = p.split('-')
     r2 = rq.get(p, headers=headers)
     soup2 = BeautifulSoup(r2.text, "html.parser")
-    with open('/home/hanieh/car/bama_pages/'+str(name[1])+'.html', 'w') as f:
+    with open(args.path+str(name[1])+'.html', 'w') as f:
         f.write(r2.text)
     tag = soup2.select('h1.addetail-title span')
     images= soup2.select("div.hidden-xs a img")
@@ -45,7 +57,8 @@ for p in pages:
             years.append(year)
             page_name.append(name[1])
 
-with open('/home/hanieh/car/bama.csv', 'w') as f:
+#write images' link, name, brand of an ad to csv file
+with open(args.output_path, 'w') as f:
     writer = csv.writer(f)
     for i in range(len(cars)):
         writer.writerow([page_name[i], cars[i], brands[i], models[i], years[i]])
