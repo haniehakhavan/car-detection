@@ -21,13 +21,20 @@ Python 3.8.5
 ## usage
 
 after installing python you can run the script in terminal
-
+<h3>bama</h3>
 #### command:
 ```sh
 python main.py --nop 'number of pages you want to crawl' --path 'path of directory you want to save html files of ads' --output_path 'path of file you want to save informtions'
 ```
-
 #### example of command:
 <code>python bama.py --nop 100 --path /home/hanieh/car/bama_pages/ --output_path /home/hanieh/car/bama.csv</code>
+
+<h3>bama_crawler</h3>
+#### command:
+```sh
+python main.py --nop 'number of pages you want to crawl' --output_path 'path of file you want to save informtions'
+```
+#### example of command:
+<code>python bama.py --nop 100  --output_path /home/hanieh/car/bama.csv</code>
 
 
