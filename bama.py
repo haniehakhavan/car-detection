@@ -1,13 +1,13 @@
 from bs4 import *
 import requests as rq
-import csv
+from csv import writer
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--nop', type=int, help='number of pages', default=100)
-parser.add_argument('--path', type=str, default='/home/hanieh/car/bama_pages/',
+parser.add_argument('--nop', type=int, help='number of pages', default=850)
+parser.add_argument('--path', type=str, default='/home/hanieh/car/pages/',
                     help='path of a directory to save html pages')
-parser.add_argument('--output_path', type=str, default='/home/hanieh/car/bama.csv',
+parser.add_argument('--output_path', type=str, default='/home/hanieh/car/carslist.csv',
                     help='path of the directory to save output')
 
 args = parser.parse_args()
@@ -22,7 +22,7 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 
 #get ads' links of first n  page of bama
-for n in range (args.nop,0,-1):
+for n in range (args.nop,830,-1):
     url = 'https://bama.ir/car/all-brands/all-models/all-trims?pic=true&page='+str(n)
     print(url)
     r = rq.get(url, headers=headers)
@@ -58,7 +58,7 @@ for p in pages:
             page_name.append(name[1])
 
 #write images' link, name, brand of an ad to csv file
-with open(args.output_path, 'w') as f:
-    writer = csv.writer(f)
+with open(args.output_path, 'a') as f:
+    writer = writer(f)
     for i in range(len(cars)):
         writer.writerow([page_name[i], cars[i], brands[i], models[i], years[i]])
