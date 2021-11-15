@@ -31,9 +31,11 @@ python main.py --nop 'number of pages you want to crawl' --path 'path of directo
 
 <h3>bama_crawler</h3>
 #### command:
+
 ```sh
 python main.py --nop 'number of pages you want to crawl' --output_path 'path of file you want to save informtions'
 ```
+
 #### example of command:
 <code>python bama.py --nop 100  --output_path /home/hanieh/car/bama.csv</code>
 
