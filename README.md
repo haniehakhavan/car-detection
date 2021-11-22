@@ -29,7 +29,7 @@ after installing python you can run the script in terminal
 #### command:
 
 ```sh
-python3 main.py --nop 'number of pages you want to crawl' --path 'path of directory you want to save html files of ads' --output_path 'path of file you want to save informtions'
+python3 bama.py --nop 'number of pages you want to crawl' --path 'path of directory you want to save html files of ads' --output_path 'path of file you want to save informtions'
 ```
 
 #### example of command:
@@ -41,12 +41,12 @@ python3 main.py --nop 'number of pages you want to crawl' --path 'path of direct
 #### command:
 
 ```sh
-python3 main.py --nop 'number of pages you want to crawl' --output_path 'path of file you want to save informtions'
+python3 bama_crawler.py --nop 'number of pages you want to crawl' --output_path 'path of file you want to save informtions'
 ```
 
 #### example of command:
 
-<code>python3 bama.py --nop 100  --output_path /home/hanieh/car/bama.csv</code>
+<code>python3 bama_crawler.py --nop 100  --output_path /home/hanieh/car/bama.csv</code>
 
 
 
@@ -55,12 +55,12 @@ python3 main.py --nop 'number of pages you want to crawl' --output_path 'path of
 #### command:
 
 ```sh
-python3 main.py --data_set 'path of dataset' --images_link 'path of images download link'
+python3 download_images.py --data_set 'path of dataset' --images_link 'path of images download link'
 ```
 
 #### example of command:
 
-<code>python bama.py --data_set /home/hanieh/car/images  --images_link /home/hanieh/car/bama2.csv</code>
+<code>python download_images.py --data_set /home/hanieh/car/images  --images_link /home/hanieh/car/bama2.csv</code>
 
 
 
