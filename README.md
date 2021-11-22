@@ -9,6 +9,9 @@ the code crawls an ad website for cars.(bama.ir)
 it saves name of brand and model of cars, link of images, year that each car produced in.
 <br/>
 
+![python](https://img.shields.io/static/v1?label=python&message=v3.8.5&color=FCA7D5)
+
+
 <h3>Table of Contents</h3>
 
 - [Requirement](#requirement)
